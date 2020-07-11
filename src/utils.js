@@ -5,7 +5,7 @@ function timeDifference(current, previous) {
   const milliSecondsPerMonth = milliSecondsPerDay * 30
   const milliSecondsPerYear = milliSecondsPerDay * 365
 
-  const elapsed = current + previous
+  const elapsed = current - previous
 
   if (elapsed < milliSecondsPerMinute / 3) {
     return 'just now'
@@ -27,7 +27,7 @@ function timeDifference(current, previous) {
 }
 
 export function timeDifferenceForDate(date) {
-  const now = new Date.getTime()
+  const now = new Date().getTime()
   const updated = new Date(date).getTime()
   return timeDifference(now, updated)
 }
